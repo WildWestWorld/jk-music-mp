@@ -1,0 +1,43 @@
+
+<view class="page">
+
+
+
+  <view class="login-form">
+
+    <view class="header">
+<view class="tab active">登录</view>
+<view class="tab">注册</view>
+    </view>
+
+    <view class="content">
+      <view class="title">登录</view>
+      <view class="title-tips">嗨，你好！欢迎登录捷凯音乐</view>
+    
+    <view class="form-item">
+
+      <view class="label">用户名/手机</view>
+      <input placeholder="请输入用户名/手机" placeholder-class="placeholder-style"></input>
+    </view>
+
+    <view class="form-item">
+      <view class="label">密码</view>
+      <input placeholder="请输入密码" placeholder-class="placeholder-style"></input>
+    </view>
+
+      <view class="forget-password">忘记密码？</view>
+
+      <button type="primary">登录</button>
+
+      <view class="register-area">
+        没有账号？<view class="register">立即注册</view>
+      </view>
+
+
+     
+    </view>
+
+  </view>
+
+
+</view>

@@ -1,6 +1,6 @@
 const baseUrl='https://jk-music-1577517-1309371796.ap-shanghai.run.tcloudbase.com'
 
-export const get = (requestUrl:string) :Promise<string>=>{
+export const get = (requestUrl:string) :Promise<any>=>{
   //wx.showLoading 就是出来一个提示框，title属性里面放的就是loading时候显示的文字是什么
   wx.showLoading({
     title:'加载中'
@@ -19,7 +19,7 @@ export const get = (requestUrl:string) :Promise<string>=>{
       },
 
       fail:reject,
-
+      //完成时
       complete:()=>{
         wx.hideLoading();
       }
