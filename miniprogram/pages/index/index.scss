@@ -1,13 +1,88 @@
+@import '../../style/styleBySelf.scss';
 .page{
+  position: relative;
+}
+.header{
   width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 480rpx;
+  background-color: $primary-color; 
+  border-radius: 0 0 200rpx 0;
+  overflow: hidden;
+  position: relative;
+  .header-bg{
+    position: relative;
 
-  .title{
-    margin-top: 30vh;
-    margin-bottom: 5vh;
-    font-size: 60rpx;
+    width: 100vw;
+    height: 100vh;
   }
+  .user-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    height: 76rpx;
+    top: 128rpx ;
+    left: 50rpx;
+    .avatar-box{
+      background-color: #fff;
+      width: 76rpx;
+      height: 76rpx;
+      line-height: 76rpx;
+      text-align: center  ;
+      border-radius: 76rpx;
+      font-weight: bold;
+      font-size: 34rpx;
+      color: $text-acitve-color;
+    }
+
+    .notification-box{
+      margin-left: 36rpx;
+      position: relative;
+     
+      .bell-icon{
+        width: 48rpx;
+        height: 50rpx;
+      }
+      .dot-icon{
+        position: absolute;
+        right: -4rpx;
+        top: -14rpx;
+        width: 34rpx;
+        height: 34rpx;
+      }
+      .dot-num{
+        position: absolute;
+        font-size: 18rpx;
+        color: white;
+        right: 8rpx;
+        top: -10rpx;
+      }
+    }
+
+  }
+}
+
+.category-banner-list{
+  position: absolute;
+  top: 274rpx;
+  height: 440rpx;
+.big-container{
+  height: 100%;
+.container{
+  display: flex;
+  flex-direction: row;
+  .category-box{
+    border-radius: 30rpx 30rpx 20rpx 20rpx;
+    overflow: hidden;
+    box-shadow: 0rpx 20rpx 150rpx 0rpx rgba(0,0,0,0.08);
+    width: 280rpx;
+    height: 440rpx; 
+    margin-left: 40rpx;
+  image{
+    width: 100%;
+    height: 100%;
+  }
+  }
+}
+}
 }

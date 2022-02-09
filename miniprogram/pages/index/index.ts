@@ -7,7 +7,14 @@ const app = getApp<IAppOption>()
 
 Page({
   data: {
-
+    categoryBannerList:[{
+      image:'../../images/hip-hop.png'
+    },{
+      image:'../../images/hip-hop.png'
+    },{
+      image:'../../images/hip-hop.png'
+    },
+  ],
     message:'hello world!'
   },
   // 事件处理函数

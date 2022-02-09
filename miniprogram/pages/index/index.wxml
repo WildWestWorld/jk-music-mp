@@ -1,8 +1,38 @@
 <view class="page">
-<view class="title">{{message}}
+  <view class="header">
+    <!-- 下面这个img是个图片 不是那个大的全蓝背景，而是一个淡淡的蓝色划痕，属于装饰品 -->
+  
+    <image class="hearder-bg" src="../../images/header-bg.png"></image>
+    <!-- 右侧的用户头像存放界面 -->
+    <view class="user-box">
 
+      <!-- 头像框 -->
+      <view class="avatar-box">
+         <view>捷</view>
+      </view>
+      <!-- 通知框 -->
+      <view class="notification-box">
+        <image class="bell-icon" src="../../images/bell.svg"></image>
+        <!-- 通知图标的数量显示的框 -->
+        <image class="dot-icon" src="../../images/dot.svg"></image>
+        <!-- 通知的数量 -->
+        <view class="dot-num">3</view>
+      </view>
+
+    </view>
+  </view>
+
+  <!--scroll-view 用于滑动  -->
+  <scroll-view class="category-banner-list" scroll-x> 
+    <view class="big-container" style="{{'width:' + (categoryBannerList.length * 320+40) +'rpx'}}">
+
+  <view class="container" style="{{'width:' + (categoryBannerList.length * 320) +'rpx'}}">
+
+  <view class="category-box" wx:for="{{categoryBannerList}}" wx:key="index">
+    <image src="{{item.image}}"></image>
+  </view>
+
+  </view>
 </view>
-<!-- bindtap=click方法 -->
-<van-button plain type="info" bindtap="hi">请求数据</van-button>
-
+  </scroll-view>
 </view>
