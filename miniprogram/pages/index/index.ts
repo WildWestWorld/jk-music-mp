@@ -15,6 +15,24 @@ Page({
       image:'../../images/hip-hop.png'
     },
   ],
+    musicianBannerList:[{
+      id:111,
+      name:"黄渤",
+      category:'流行音乐',
+      image:'../../../../images/musician-photo.png'
+    },{
+      id:222,
+      name:"黄渤",
+      category:'流行音乐',
+      image:'../../../../images/musician-photo.png'
+    },{
+      id:333,
+      name:"黄渤",
+      category:'流行音乐',
+      image:'../../../../images/musician-photo.png'
+    },
+    
+  ],
     message:'hello world!'
   },
   // 事件处理函数

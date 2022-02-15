@@ -1,0 +1,8 @@
+<!--components/index/musician-banner-component/musician-card/index.wxml-->
+<!-- bindtap绑定一个手机的点击事件，后面我们会把他转成click时间被上层的bindclick捕获 -->
+<view class="card" bindtap="onTab">
+  <image src="{{item.image}}" class="image"></image>
+  <view class="name">{{item.name}}</view>
+  <view class="category">{{item.category}}</view>
+</view>
+

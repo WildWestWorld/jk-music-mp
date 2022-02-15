@@ -1,6 +1,7 @@
 {
   "usingComponents": { 
-     "van-button": "@vant/weapp/button/index"
-
+     "van-button": "@vant/weapp/button/index",
+     "muscian-banner":"../../components/index/musician-banner/index"
+     
     }
 }

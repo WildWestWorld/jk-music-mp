@@ -1,0 +1,38 @@
+@import '../../../../style/styleBySelf.scss';
+
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 240rpx;
+  align-items: center;
+  overflow: hidden;
+  .image{
+    width: 240rpx;
+    height: 240rpx;
+    border-radius: 240rpx;
+    overflow: hidden;
+  }
+  .name{
+    max-width: 150rpx;
+    margin-top: 20rpx;
+    font-size: 32rpx;
+    color: $text-acitve-color;
+    line-height: 36rpx;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    overflow: hidden;
+  }
+  .category{
+    max-width: 150rpx;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color:#7A869A;
+    line-height: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+  }
+}

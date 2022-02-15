@@ -2,7 +2,7 @@
   <view class="header">
     <!-- 下面这个img是个图片 不是那个大的全蓝背景，而是一个淡淡的蓝色划痕，属于装饰品 -->
   
-    <image class="hearder-bg" src="../../images/header-bg.png"></image>
+    <image class="header-bg" src="../../images/header-bg.png"></image>
     <!-- 右侧的用户头像存放界面 -->
     <view class="user-box">
 
@@ -35,4 +35,11 @@
   </view>
 </view>
   </scroll-view>
+
+  <!-- 受欢迎的音乐家 -->
+  <view class="trending-musician">
+  <muscian-banner title="流行音乐人" list="{{musicianBannerList}}"></muscian-banner>
+  </view>
+
+
 </view>
