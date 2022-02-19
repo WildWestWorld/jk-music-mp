@@ -9,11 +9,11 @@ Component({
   properties: {
     title:{
       type:String,
-      default:''
+      value:''
     },
     list:{
       type:Array,
-      default:null,
+      value:[],
     }
   },
 

@@ -41,5 +41,46 @@
   <muscian-banner title="流行音乐人" list="{{musicianBannerList}}"></muscian-banner>
   </view>
 
+  <!-- 推荐歌单 -->
+<view class="recommendMusicList" style="width: 100%;">
+<!-- 自定义滑动模块组件 -->
+  <srollable-frame title="推荐歌单" moreLabel="更多歌单" hideMoreLabel="{{true}}" itemWidth="{{320}}" itemCount="{{recommandMusicList.length}}">
+
+    <recommendMusic-card wx:for="{{recommandMusicList}}" wx:key="index" item="{{item}}"></recommendMusic-card>
+
+  </srollable-frame>
+</view>
+
+  <!-- 推荐专辑 -->
+  <view class="recommendAlbumList" style="width: 100%;">
+<!-- 自定义滑动模块组件 -->
+  <srollable-frame title="推荐专辑" moreLabel="更多专辑" hideMoreLabel="{{true}}" itemWidth="{{320}}" itemCount="{{recommandMusicList.length}}">
+
+    <recommendMusic-card wx:for="{{recommandMusicList}}" wx:key="index" item="{{item}}"></recommendMusic-card>
+
+  </srollable-frame>
+</view>
+
+  <!-- 推荐电台 -->
+  <view class="recommendPodcastList" style="width: 100%;">
+<!-- 自定义滑动模块组件 -->
+  <srollable-frame title="推荐电台" moreLabel="更多电台" hideMoreLabel="{{false}}" itemWidth="{{320}}" itemCount="{{recommandMusicList.length}}">
+
+    <recommendMusic-card wx:for="{{recommandMusicList}}" wx:key="index" item="{{item}}"></recommendMusic-card>
+
+  </srollable-frame>
+</view>
+
+<view class="lastPlayMusic">
+<title-banner title="最近播放" moreLabel="更多" hideMoreLabel="{{true}}"></title-banner>
+<view class="lastplaymusic-list" style="{{'height:'+(lastPlayMusicList.length*168+40)+'rpx'}}">
+  <lastplaymusic-card wx:for="{{lastPlayMusicList}}" wx:key="index" item="{{item}}"></lastplaymusic-card>
+</view>
 
 </view>
+
+<!-- page止 -->
+</view>
+
+
+

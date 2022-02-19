@@ -97,6 +97,23 @@
   .trending-musician{
     margin-top:324rpx
   }
+  .recommendMusicList{
+    margin-top: 80rpx;
+  }
+  .recommendAlbumList{
+    margin-top: 80rpx;
+  }
+  .recommendPodcastList{
+    margin-top: 80rpx;
+  }
+  .lastPlayMusic{
+    margin-top: 80rpx;
+    .lastplaymusic-list{
+      display: flex;
+      flex-direction: column;
+      padding: 0 50rpx;
+    }
+  }
 }
 
 

@@ -33,6 +33,30 @@ Page({
     },
     
   ],
+    recommandMusicList:[{
+      name:"狂想曲",
+      description:'释放心中的怒火',
+      image:'../../../../images/album.png'
+    },{
+      name:"狂想曲",
+      description:'释放心中的怒火',
+      image:'../../../../images/album.png'
+    },{
+      name:"狂想曲",
+      description:'释放心中的怒火',
+      image:'../../../../images/album.png'
+    },
+  ],
+    lastPlayMusicList:[{
+      name:"夜曲",
+      author:"十一月的肖邦 - 周杰伦",
+      image:'../../../images/yequ.jpeg'
+    },{
+      name:"夜曲",
+      author:"十一月的肖邦 - 周杰伦",
+      image:'../../../images/yequ.jpeg'
+    },
+    ],
     message:'hello world!'
   },
   // 事件处理函数

@@ -1,7 +1,11 @@
 {
   "usingComponents": { 
      "van-button": "@vant/weapp/button/index",
-     "muscian-banner":"../../components/index/musician-banner/index"
-     
+     "muscian-banner":"../../components/index/musician-banner/index",
+     "srollable-frame":"../../components/index/srollable-frame/index",
+     "musician-card":"../../components/index/musician-banner-component/musician-card/index",
+     "recommendMusic-card":"../../components/index/srollable-frame-component/recommendMusic-card/index",
+      "title-banner":"../../components/index/srollable-frame-component/title-banner/index",
+      "lastplaymusic-card":"../../components/index/lastplaymusic-card/index"
     }
 }
