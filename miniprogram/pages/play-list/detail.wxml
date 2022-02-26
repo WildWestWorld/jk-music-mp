@@ -1,0 +1,21 @@
+<view class="page">
+  <image class="backgroud-image" src="../../images/playlist-back-image.svg" alt=""/>
+
+  <view class="header">
+  <image  class="cover" src="../../images/playlist-cover.svg" alt=""/>
+  <view class="name">杀破狼</view>
+  <view class="description">仙剑奇侠传3-原声大碟</view>
+  </view>
+
+  <view class="action-area">
+    <view class="playmusic-btn-container">
+      <button class="playmusic-btn">播放</button>
+    </view>
+
+    <view class="download-btn-container">
+      <button class="download-btn"><image class="download-image" src="../../images/down-load.svg"></image></button>
+    </view>
+
+  </view>
+</view>
+

@@ -1,0 +1,6 @@
+<!-- bindtap绑定一个手机的点击事件，后面我们会把他转成click事件被上层的bindclick捕获 -->
+<view class="recommand-card" bindtap="onTab">
+  <image src="{{item.image}}" class="image"></image>
+  <view class="name">{{item.name}}</view>
+  <view class="description">{{item.description}}</view>
+</view>

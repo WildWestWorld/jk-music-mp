@@ -4,7 +4,8 @@
     "pages/login/index",
     "pages/search/index",
     "pages/lib/index",
-    "components/index/musician-banner/index"
+    "components/index/musician-banner/index",
+    "pages/play-list/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

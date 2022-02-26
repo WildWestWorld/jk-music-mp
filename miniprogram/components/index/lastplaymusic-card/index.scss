@@ -1,0 +1,44 @@
+@import '../../../style/styleBySelf.scss'; 
+
+
+  .music-card{
+    display: flex;
+    flex-direction: row;;
+    margin-bottom: 40rpx;
+    .cover{
+      position: relative;
+      width: 128rpx;
+      height: 128rpx;
+      image{
+        width: 128rpx;
+        height: 128rpx;
+        border-radius: 64rpx;
+       
+      }
+      .circle{
+        position: absolute;
+        width: 32rpx;
+        height: 32rpx;
+        border-radius: 16rpx;
+        background-color: #fff;
+        top:calc(50% - 16rpx);
+        right:calc(50% - 16rpx);
+      }
+    }
+    .info{
+      margin-left: 30rpx;
+      max-width:100%;
+      .name{
+        margin-top: 20rpx;
+        font-size: 32rpx;
+        color: #002251;
+        line-height: 36rpx;
+      }
+      .author{
+        margin-top: 12rpx;
+        font-size: 28rpx;
+        color:$text-color;
+        line-height: 34rpx;
+      }
+    }
+  }

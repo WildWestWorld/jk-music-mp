@@ -1,0 +1,39 @@
+/* components/index/srollable-frame-component/recommandMusic-card/index.wxss */
+@import '../../../../style/styleBySelf.scss';
+
+.recommand-card{
+  display: flex;
+  flex-direction: column;
+  width: 280rpx;
+  align-items: center;
+  overflow: hidden;
+  .image{
+    width: 280rpx;
+    height: 280rpx;
+    border-radius: 30rpx;
+    overflow: hidden;
+  }
+  .name{
+    max-width: 300rpx;
+    margin-top: 20rpx;
+    font-size: 32rpx;
+    color: $text-acitve-color;
+    line-height: 36rpx;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    overflow: hidden;
+  }
+  .description{
+    max-width: 300rpx;
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color:#7A869A;
+    line-height: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+  }
+}

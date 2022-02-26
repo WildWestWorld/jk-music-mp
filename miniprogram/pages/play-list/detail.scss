@@ -1,0 +1,110 @@
+@import '../../style/styleBySelf.scss';
+
+.page{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  .backgroud-image{
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+    width: 750rpx;
+    height: 470rpx;
+    z-index: -1;
+  }
+  .header{
+    padding-top: 250rpx;
+    width: 100vw;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .cover{
+      width: 320rpx;
+      height: 320rpx;
+      border-radius: 34rpx;
+      margin-bottom: 40rpx;
+    }
+    .name{
+      color: $text-acitve-color;
+      font-size: 36rpx;
+      line-height: 42rpx;
+      margin-bottom: 20rpx;
+    }
+    .description{
+      color: $text-color;
+      max-width: 476rpx;
+      height: 56rpx;
+      font-size: 24rpx;
+      line-height: 30rpx;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-clamp: 2;
+      white-space: nowrap;
+    }
+  }
+  .action-area{
+    display: flex;
+    flex-direction: row;
+    // 清除小程序原有的样式
+    button{
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 0;
+      text-align: center;
+      vertical-align: middle;
+      -webkit-appearance: none;
+      -webkit-text-size-adjust: 100%;
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        border: inherit;
+        border-radius: inherit; /* inherit parent's border radius */
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        content: ' ';
+        background-color: black;
+        border-color: black;
+      }
+    // reset weapp default border
+      &::after {
+      border-width: 0;
+      }
+    }
+    .playmusic-btn-container{
+      .playmusic-btn{
+        width: 442rpx;
+        height: 88rpx;
+        background-color: $primary-color;
+        border-radius: 20rpx;
+        font-size: 32rpx;
+        line-height: 36rpx;
+        color: white;
+
+    }
+  }
+   .download-btn-container{
+ 
+    
+    .download-btn{
+        width: 88rpx;
+        height: 88rpx;
+
+        border-radius: 20rpx;
+        opacity: 1;
+       .download-image{
+         width: 44rpx;
+         height: 44rpx;
+         
+       }
+    }
+   }
+
+  }
+}

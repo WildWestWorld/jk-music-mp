@@ -34,14 +34,17 @@ Page({
     
   ],
     recommandMusicList:[{
+      id:"111",
       name:"狂想曲",
       description:'释放心中的怒火',
       image:'../../../../images/album.png'
     },{
+      id:"111",
       name:"狂想曲",
       description:'释放心中的怒火',
       image:'../../../../images/album.png'
     },{
+      id:"111",
       name:"狂想曲",
       description:'释放心中的怒火',
       image:'../../../../images/album.png'

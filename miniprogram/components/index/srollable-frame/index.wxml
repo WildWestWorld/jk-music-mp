@@ -1,0 +1,16 @@
+<!-- 滑动框组件 用于装载滑动图片的容器 -->
+<view class="header">
+  <view class="title">{{title}}</view>
+  <view class="more" wx:if="{{hideMoreLabel}}">{{moreLabel}}</view>
+
+</view>
+
+<scroll-view scroll-x>
+
+<view class="list" style="{{'width:'+(itemCount*itemWidth+50)+'rpx'}}">
+<!-- 自定义组件  -->
+<!-- bindclick 点击事件，下层的手机点击事件会被转化成click事件被该层捕获 -->
+<slot></slot>
+</view>
+
+</scroll-view>
