@@ -1,4 +1,4 @@
-// components/index/lastplaymusic-list/index.ts
+// components/common/JKButton/index.ts
 Component({
   /**
    * 组件的属性列表
@@ -7,13 +7,17 @@ Component({
     styleIsolation:'isolated'
   },
   properties: {
-    item:{
-      type:Object,
-      value:()=>{null}
+    width:{
+      type:String,
+      value:""
     },
-    likeAble:{
-      type:Boolean,
-      value:false
+    type:{
+      type:String,
+      value:'primary'
+    },
+    icon:{
+      type:String,
+      value:null
     }
   },
 

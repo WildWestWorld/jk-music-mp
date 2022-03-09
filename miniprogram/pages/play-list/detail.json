@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "JKButton":"../../components/common/JKButton/index",
+    "lastplaymusic-card":"../../components/index/lastplaymusic-card/index"
+
+  }
 }

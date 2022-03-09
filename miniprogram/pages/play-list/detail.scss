@@ -46,14 +46,16 @@
   .action-area{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     // 清除小程序原有的样式
+
     button{
       position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
-      padding: 0;
+      padding: 20rpx;
       text-align: center;
       vertical-align: middle;
       -webkit-appearance: none;
@@ -77,6 +79,8 @@
       border-width: 0;
       }
     }
+
+
     .playmusic-btn-container{
       .playmusic-btn{
         width: 442rpx;
@@ -86,13 +90,20 @@
         font-size: 32rpx;
         line-height: 36rpx;
         color: white;
-
+        margin-right: 20rpx;
     }
+    .playmusic-btn-hover {
+      background: $primary-color;
+      opacity: 0.8;
+     }
   }
    .download-btn-container{
- 
+
     
     .download-btn{
+
+
+
         width: 88rpx;
         height: 88rpx;
 
@@ -104,7 +115,19 @@
          
        }
     }
+
    }
 
+
+
   }
+  .lastPlayMusic{
+    margin-top: 80rpx;
+    .lastplaymusic-list{
+      display: flex;
+      flex-direction: column;
+      padding: 0 50rpx;
+    }
+  }
+
 }

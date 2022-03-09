@@ -1,0 +1,8 @@
+<!--components/common/JKButton/index.wxml-->
+
+<view class="JK-button">
+<button class="{{type}}" hover-class="{{'hover-'+type}}" style="{{width?'width:'+(width):''}}">
+<image wx:if="{{icon}}" class="icon" src="{{'../../../images/'+icon+'.svg'}}"></image>
+<slot></slot>
+</button>
+</view>

@@ -9,7 +9,7 @@
 
   <view class="action-area">
     <view class="playmusic-btn-container">
-      <button class="playmusic-btn">播放</button>
+      <button class="playmusic-btn" hover-class="playmusic-btn-hover">播放</button>
     </view>
 
     <view class="download-btn-container">
@@ -17,5 +17,13 @@
     </view>
 
   </view>
+
+<view class="lastPlayMusic">
+
+    <view class="lastplaymusic-list" style="{{'height:'+(lastPlayMusicList.length*168+40)+'rpx'}}">
+      <lastplaymusic-card wx:for="{{lastPlayMusicList}}" wx:key="index" item="{{item}}" likeAble></lastplaymusic-card>
+    </view>
+</view>
+
 </view>
 

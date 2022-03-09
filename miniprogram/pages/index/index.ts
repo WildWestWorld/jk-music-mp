@@ -52,13 +52,15 @@ Page({
   ],
     lastPlayMusicList:[{
       name:"夜曲",
-      author:"十一月的肖邦 - 周杰伦",
-      image:'../../../images/yequ.jpeg'
+      album:"十一月的肖邦",
+      artist:"周杰伦",
+      cover:'../../../images/yequ.jpeg'
     },{
       name:"夜曲",
-      author:"十一月的肖邦 - 周杰伦",
-      image:'../../../images/yequ.jpeg'
-    },
+      album:"十一月的肖邦",
+      artist:"周杰伦",
+      cover:'../../../images/yequ.jpeg'
+    }
     ],
     message:'hello world!'
   },

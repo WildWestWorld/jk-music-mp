@@ -41,4 +41,16 @@
         line-height: 34rpx;
       }
     }
+    .likeAbleContainer{
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-self: center;
+      margin-right: 20rpx;
+      .likeAble{
+        width: 32rpx;
+        height: 30rpx;
+      }
+
+    }
   }

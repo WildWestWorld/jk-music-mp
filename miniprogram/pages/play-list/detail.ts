@@ -4,8 +4,26 @@ Page({
   /**
    * 页面的初始数据
    */
+  
   data: {
+    lastPlayMusicList:[{
+      name:"夜曲",
+      album:"十一月的肖邦",
+      artist:"周杰伦",
+      cover:'../../../images/yequ.jpeg'
+    },{
+      name:"夜曲",
+      album:"十一月的肖邦",
+      artist:"周杰伦",
+      cover:'../../../images/yequ.jpeg'
+    },{
+      name:"夜曲",
+      album:"十一月的肖邦",
+      artist:"周杰伦",
+      cover:'../../../images/yequ.jpeg'
+    }
 
+    ],
   },
 
   /**
