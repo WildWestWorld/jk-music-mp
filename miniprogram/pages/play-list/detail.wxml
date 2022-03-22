@@ -1,3 +1,5 @@
+<JKNavigator title="歌单详情"></JKNavigator>
+
 <view class="page">
   <image class="backgroud-image" src="../../images/playlist-back-image.svg" alt=""/>
 
