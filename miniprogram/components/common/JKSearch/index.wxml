@@ -1,0 +1,6 @@
+<view class="search-input">
+  <image class="search-icon" src="../../../images/icons/search.svg"></image>
+  <input model:value="{{value}}" placeholder-class="placeholder" type="text" placeholder="检索音乐" bindinput="emptyCallback"></input>
+  <image wx:if="{{value}}" bindtap="clear" class="clear-icon" src="../../../images/icons/clear.svg"></image>
+
+</view>

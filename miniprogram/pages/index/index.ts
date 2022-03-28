@@ -8,11 +8,17 @@ const app = getApp<IAppOption>()
 Page({
   data: {
     categoryBannerList:[{
-      image:'../../images/hip-hop.png'
+      name:'说唱音乐',
+      playTimes:'15K',
+      image:'../../images/recommend-playlist.png'
     },{
-      image:'../../images/hip-hop.png'
+      name:'说唱音乐',
+      playTimes:'15K',
+      image:'../../images/recommend-playlist.png'
     },{
-      image:'../../images/hip-hop.png'
+      name:'说唱音乐',
+      playTimes:'15K',
+      image:'../../images/recommend-playlist.png'
     },
   ],
     musicianBannerList:[{

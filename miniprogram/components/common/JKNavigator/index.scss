@@ -1,0 +1,35 @@
+@import'../../../style/styleBySelf.scss';
+
+
+.navigator{
+  box-sizing: border-box;
+  position: absolute;
+  width: 100vw;
+  height: 44rpx;
+  top: 144rpx;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  flex-direction: row;
+  
+  .left-icon-container{
+    display: flex;
+    align-items: center;
+    .left-icon{
+      width: 44rpx;
+      height: 44rpx;
+    }
+  }
+  .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 44rpx;
+    color: $text-acitve-color;
+    font-size: 36rpx;
+    line-height: 44rpx;
+    flex: 1;
+  }
+
+
+}

@@ -84,11 +84,27 @@
       width: 280rpx;
       height: 440rpx; 
       margin-left: 40rpx;
+      position: relative;
     image{
       max-width: 100%;
       max-height: 100%;
       display: block;
 
+    }
+    .title-container{
+      position: absolute;
+      top: 40rpx;
+      left:30rpx;
+      .name{
+        font-size: 36rpx;
+        color:#FFFFFF;
+        line-height: 42rpx;
+      }
+      .playTimes{
+        font-size: 28rpx;
+        color:#FFFFFF;
+        opacity:0.8;
+      }
     }
     }
   }

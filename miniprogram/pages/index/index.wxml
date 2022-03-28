@@ -22,7 +22,7 @@
     </view>
   </view>
 
-  <!--scroll-view 用于滑动  -->
+  <!--scroll-view 用于滑动：专题 （该组件还未组件化，个人选择保留） -->
   <scroll-view class="category-banner-list" scroll-x> 
     <view class="big-container" style="{{'width:' + (categoryBannerList.length * 320+40) +'rpx'}}">
 
@@ -30,13 +30,19 @@
 
   <view class="category-box" wx:for="{{categoryBannerList}}" wx:key="index">
     <image src="{{item.image}}"></image>
+
+    <view class="title-container">
+      <view class="name">{{item.name}}</view>
+      <view class="playTimes">{{item.playTimes}} Played</view>
+    </view>
+
   </view>
 
   </view>
 </view>
   </scroll-view>
 
-  <!-- 受欢迎的音乐家 -->
+  <!--流行音乐人-->
   <view class="trending-musician">
   <muscian-banner title="流行音乐人" list="{{musicianBannerList}}"></muscian-banner>
   </view>

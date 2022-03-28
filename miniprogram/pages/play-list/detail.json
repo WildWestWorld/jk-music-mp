@@ -2,6 +2,7 @@
   "usingComponents": {
     "JKButton":"../../components/common/JKButton/index",
     "lastplaymusic-card":"../../components/index/lastplaymusic-card/index",
-    "JKNavigator":"../../components/common/JKNavigator/index"
+    "JKNavigator":"../../components/common/JKNavigator/index",
+    "header-background-image":"../../components/play-list/header-background-image/index"
   }
 }
