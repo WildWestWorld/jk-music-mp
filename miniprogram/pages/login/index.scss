@@ -8,12 +8,12 @@
     background-color:$primary-color;
     display: flex;
     position: relative;
-    
+    font-family: "AppleGothic";
   .login-form{
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 1372rpx;
+    height: 85vh;
     background-color: #fff;
     border-radius: 30rpx 30rpx 0 0;
     overflow: hidden;

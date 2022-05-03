@@ -1,6 +1,8 @@
 // index.ts
 
+import { getToken } from "../../utils/auth"
 import { sayHello } from "../../api/hello"
+import { getPageByMusicName } from "../../api/music"
 
 // 获取应用实例
 const app = getApp<IAppOption>()
@@ -68,6 +70,7 @@ Page({
       cover:'../../../images/yequ.jpeg'
     }
     ],
+    JKRecommandMusicList:null,
     message:'hello world!'
   },
   // 事件处理函数
@@ -82,6 +85,31 @@ Page({
      })
      
       return console.log(resData)
+    })
+  },
+  // test(event){
+  //   console.log(event)
+  // },
+
+  onLoad() {
+    if(!getToken){
+      wx.switchTab({url:'/pages/login/index'})
+    };
+    
+
+
+  },
+  //在页面初始化完毕后加载的函数
+  onShow(){
+
+  },
+  onReady(){
+    let data={pageNum:1,pageSize:10,searchWord:''};
+    getPageByMusicName(data).then(res=>{
+      console.log(res)
+      this.setData({
+        'JKRecommandMusicList':res.data.records
+      })
     })
   }
 })

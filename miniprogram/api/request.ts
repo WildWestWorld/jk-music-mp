@@ -13,11 +13,17 @@ export const get = (requestUrl:string) :Promise<any>=>{
     wx.request({
       url:baseUrl+requestUrl,
       method:'GET',
-
+      header:{
+        'authorization':'Bearer '+wx.getStorageSync('JK-token'),
+        'content-type': 'application/json;charset=utf-8',
+        'Accpet':'application/json'
+      },
+      dataType: "json",
       success:(res)=>{
         //resolve(res) =将res标记为resolve状态，也就是res被成功解析了
         //且标记为resolve的数据就是后续then里面的参数
-        resolve(res.data)
+        
+        resolve(res)
       },
 
       fail:reject,
@@ -31,6 +37,88 @@ export const get = (requestUrl:string) :Promise<any>=>{
 
 //get方法止
 }
+
+export const getWithParams = (requestUrl:string,data:object) :Promise<any>=>{
+  //wx.showLoading 就是出来一个提示框，title属性里面放的就是loading时候显示的文字是什么
+  wx.showLoading({
+    title:'加载中'
+  })
+  //返回一个promise对象
+  return new Promise((resolve,reject)=>{
+    //Wx.request必要的5个参数,url method,success(回调函数),fail(回调函数),compete(回调函数)
+    wx.request({
+      url:baseUrl+requestUrl,
+      method:'GET',
+      data:data,
+      header:{
+        'authorization':'Bearer '+wx.getStorageSync('JK-token'),
+        'content-type': 'application/json;charset=utf-8',
+        'Accpet':'application/json'
+      },
+      dataType: "json",
+
+      success:(res)=>{
+        //resolve(res) =将res标记为resolve状态，也就是res被成功解析了
+        //且标记为resolve的数据就是后续then里面的参数
+        resolve(res)
+      },
+
+      fail:(res)=>{
+        if(!wx.getStorageSync('JK-token')||res.statusCode!== 200){
+          wx.navigateTo({url:'/pages/login/index'})
+        }
+        reject
+      },
+      //完成时
+      complete:()=>{
+        wx.hideLoading();
+      }
+
+    })
+  })
+
+//get方法止
+}
+
+
+
+export const getDIY = (requestUrl:string) :Promise<any>=>{
+  //wx.showLoading 就是出来一个提示框，title属性里面放的就是loading时候显示的文字是什么
+  wx.showLoading({
+    title:'加载中'
+  })
+  //返回一个promise对象
+  return new Promise((resolve,reject)=>{
+    //Wx.request必要的5个参数,url method,success(回调函数),fail(回调函数),compete(回调函数)
+    wx.request({
+      url:requestUrl,
+      method:'GET',
+      header:{
+        'authorization':'Bearer '+wx.getStorageSync('JK-token'),
+        'content-type': 'application/json;charset=utf-8',
+        'Accpet':'application/json'
+      },
+      dataType: "json",
+      success:(res)=>{
+        //resolve(res) =将res标记为resolve状态，也就是res被成功解析了
+        //且标记为resolve的数据就是后续then里面的参数
+        
+        resolve(res)
+      },
+
+      fail:reject,
+      //完成时
+      complete:()=>{
+        wx.hideLoading();
+      }
+
+    })
+  })
+
+//get方法止
+}
+
+
 
 export const post = (requestUrl:string, data:object) :Promise<any>=>{
   //wx.showLoading 就是出来一个提示框，title属性里面放的就是loading时候显示的文字是什么

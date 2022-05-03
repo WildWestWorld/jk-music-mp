@@ -7,5 +7,9 @@ type LoginRequest ={
 
 export const login =(loginReques:LoginRequest)=>{
   
-  return  post('/login',loginReques)
+  return  post('/tokens',loginReques)
+};
+export const register =(user:Object)=>{
+  
+  return  post('/users',user)
 }

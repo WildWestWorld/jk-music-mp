@@ -6,32 +6,37 @@
   <view class="login-form">
 
     <view class="header">
-<view class="tab active">登录</view>
-<view class="tab">注册</view>
+<view class="{{isLogin?'tab active':'tab'}}" bindtap="navigetorToLogin">登录</view>
+<view class="{{isLogin?'tab':'tab active'}}" bindtap="navigetorToRegister">注册</view>
     </view>
 
-    <view class="content">
-      <view class="title">登录</view>
-      <view class="title-tips">嗨，你好！欢迎登录捷凯音乐</view>
+    <view class="content" >
+      <view class="title">{{isLogin?'登录':'注册'}}</view>
+      <view class="title-tips">{{isLogin?'嗨，你好！欢迎登录捷凯音乐':'尊敬的用户，你好！欢迎注册捷凯音乐'}}</view>
     
     <view class="form-item">
 
-      <view class="label">用户名/手机</view>
-      <input model:value="{{username}}"  placeholder="请输入用户名/手机" placeholder-class="placeholder-style"></input>
+      <view class="label">{{isLogin?'用户名':'注册用户名(至少4位)'}}</view>
+      <input model:value="{{username}}"   placeholder="{{isLogin?'请输入用户名':'请输入注册用户名'}}" bindinput="emptyFunctionForModel"  placeholder-class="placeholder-style"></input>
+    </view>
+
+    <view class="form-item" wx:if="{{!isLogin}}">
+      <view class="label">{{isLogin?'昵称':'注册昵称(至少2位)'}}</view>
+      <!-- placeholder-class：placeholder的样式 -->
+      <input   model:value="{{nickname}}"  placeholder="请输入注册昵称" bindinput="emptyFunctionForModel()"  placeholder-class="placeholder-style"></input>
     </view>
 
     <view class="form-item">
-      <view class="label">密码</view>
+      <view class="label">{{isLogin?'密码':'注册密码(至少6位)'}}</view>
       <!-- placeholder-class：placeholder的样式 -->
-      <input password  model:value="{{password}}"  placeholder="请输入密码" placeholder-class="placeholder-style"></input>
+      <input password  model:value="{{password}}"  placeholder="{{isLogin?'请输入密码':'请输入注册密码'}}" bindinput="emptyFunctionForModel"  placeholder-class="placeholder-style"></input>
     </view>
+      <view class="forget-password" wx:if="{{isLogin}}">忘记密码？</view>
 
-      <view class="forget-password">忘记密码？</view>
+      <button type="primary" bindtap="{{isLogin?'onLogin':'onRegister'}}">{{isLogin?'登录':'注册'}}</button>
 
-      <button type="primary" bindtap="onLogin">登录</button>
-
-      <view class="register-area">
-        没有账号？<view class="register">立即注册</view>
+      <view class="register-area" wx:if="{{isLogin}}" bindtap="navigetorToRegister">
+        没有账号？<view class="register" >立即注册</view>
       </view>
 
 

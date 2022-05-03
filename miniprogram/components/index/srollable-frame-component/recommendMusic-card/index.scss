@@ -13,6 +13,10 @@
     border-radius: 30rpx;
     overflow: hidden;
   }
+  .name-container{
+    width: 100%;
+    white-space: nowrap;
+
   .name{
     max-width: 300rpx;
     margin-top: 20rpx;
@@ -25,6 +29,7 @@
     text-align: center;
     overflow: hidden;
   }
+}
   .description{
     max-width: 300rpx;
     margin-top: 10rpx;

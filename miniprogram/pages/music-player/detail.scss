@@ -1,0 +1,392 @@
+/* pages/music-player/detail.wxss */
+.page{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  .img-container{
+    position: absolute;
+    width: 100%;
+    height: 700rpx;
+    top: 160rpx;
+   
+    view{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 40rpx;
+      .musicImg{
+        width: 634rpx;
+        height: 634rpx;
+        border-radius: 40rpx;
+        
+      }
+      //高斯模糊
+      .musicImg::before{
+        content: "";
+        position: absolute; /* 一定要用绝对定位 */
+        width: 634rpx;
+        height: 634rpx;
+        backdrop-filter: blur(120rpx); /* 模糊半径 */
+        border-radius: 40rpx;
+        opacity: 0.6;
+        z-index:-1;
+      }
+      .lyc-container{
+        width: 634rpx;
+        height: 634rpx;
+        border-radius: 40rpx;
+        scroll-view{
+          max-height:  634rpx ;
+          view{
+            width: 100%;
+         
+          }
+        
+        }
+      }
+    }
+  }
+  .text-container{
+    position: absolute;
+    top: 836rpx;
+    left: 60rpx;
+    width: 632rpx;
+    max-width:  632rpx;
+
+    height: 162rpx;
+    max-height:  162rpx;
+    view{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      
+      .music-name-container{
+          width: 100%;
+          height: 52rpx;
+          color: rgb(8, 8, 8);
+          font-size: 44rpx;
+          font-weight: 800rpx;
+          line-height: 52rpx;
+          letter-spacing: 0px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-family: "AppleGothic"
+      }
+      .album-name-container{
+        width: 100%;
+        height: 40rpx;
+        color: rgb(255, 45, 85);
+        font-size: 34rpx;
+        font-weight: 800rpx;
+        line-height: 40rpx;
+        letter-spacing: 0px;
+        margin-top: 16rpx;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-family: "AppleGothic"
+    }
+    .artist-name-container{
+      width: 100%;
+      height: 40rpx;
+      color: rgb(8, 8, 8);
+      opacity: 0.61;
+      font-size: 34rpx;
+      font-weight: 800rpx;
+      line-height: 40rpx;
+      letter-spacing: 0px;
+      margin-top: 16rpx;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: "AppleGothic"
+  }
+    }
+  
+  }
+  .time-code-solider{
+    position:absolute;
+    top: 1030rpx;
+    left:58rpx;
+    height: 84rpx;
+    width: 634rpx;
+    .progress{
+      position: relative;
+      width: 100%;
+      height: 30rpx;
+      //进度条以外的背景颜色
+      background-color: rgba(16, 93, 251,0.4);
+      //主要倒圆角的位置
+      border-radius:60rpx;
+      overflow: hidden;
+      .progress-bar{
+        // 设置默认的宽度，我们用脚本来设置该宽度
+        width: 0;
+        height: 100%;
+// 设置背景主色调，进度条的主要颜色来源，进度条其实原本没什么颜色
+        background-color: rgba(16, 93, 251,1);
+        background-image:
+        linear-gradient(
+          // 倾斜135度
+        135deg,
+        //rgba(255,255,255,.15) 就是白色线 
+
+        // rgba(255,255,255,.15) 0%,
+        // rgba(255,255,255,.15) 25%, 意思是整个图片的0-25%是整个颜色的，也就是有点透明的白色
+        rgba(255,255,255,.15) 0%,
+        rgba(255,255,255,.15) 25%,
+        // transparent 25%,transparent 50%,意思是整个图片的25-50%是透明的，他之所以看起来是蓝色是因为我们设置了背景颜色，
+        transparent 25%,transparent 50%,
+        //同上
+        rgba(255,255,255,.15) 50%,
+        rgba(255,255,255,0.15) 75%,
+        //同上
+        transparent 75%,transparent 100%);
+        //设置背景图像的高度和宽度(不加的话，只有一张图片而且图片会一直变大，失真)
+        background-size:80rpx 80rpx;
+        // transition: width 0.6s ease;
+        //倒圆角，主要倒圆角的位置不是在这里，在父级容器
+        border-radius: 60rpx;
+        // progress-bar-anim是我们自定义的动画
+        //2s 就是整个移动持续2s
+        //linear线性 要是不加就2s触发一次动画，这也是我们进度条美观的核心
+        //infinite无限循环，这就是我们精度条美观的核心
+        animation: progress-bar-anim 2s   linear infinite;
+        .progress-bar-value{
+          font-size: 26rpx;
+          font-weight: bold;
+          opacity: 0;
+          color: white;
+        }
+        // 设置动画
+        // 动画的内容，图片从右边 80rpx的位置滑动的移动到0px的位置
+        //因为我们的进度条最长也就80px，也就是说整个背景图片就会一直往左移动
+        @keyframes progress-bar-anim{
+          from{
+            background-position:80rpx  0;
+          }
+          to{
+            
+            background-position:0rpx  0;
+          }
+        }
+      }
+    }
+    .time-container{
+      position: relative;
+      width: 100%;
+      margin-top: 18rpx;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .current-time{
+        font-size: 22rpx;
+        font-weight: 800rpx;
+        line-height: 26rpx;
+        color:rgba(16, 93, 251);
+        font-family: "AppleGothic"
+      }
+      .total-time{
+        font-size: 22rpx;
+        font-weight: 800rpx;
+        line-height: 26rpx;
+        color:rgba(16, 93, 251);
+        font-family: "AppleGothic"
+      }
+    }
+  }
+
+
+    .back{
+        position: absolute;
+        width: 36rpx;
+        height: 40rpx;
+        left: 86rpx;
+        top: 1195rpx;
+        view{
+          position: relative;
+          width: 36rpx;
+          height: 40rpx;
+          max-width:36rpx ;
+          max-height: 40rpx;
+          image{
+            width: 100%;
+            height: 100%;
+            max-width:56rpx ;
+            max-height: 60rpx;
+          }
+        }
+    }
+
+    .previous-music{
+      position: absolute;
+      width:  66rpx;
+      height: 40rpx;
+      left: 190rpx;
+      top: 1195rpx;
+      view{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width:100% ;
+        max-height: 100%;
+        image{
+          width: 100%;
+          height: 100%;
+
+        }
+      }
+  }
+
+  .play-music{
+    position: absolute;
+    width:  140rpx;
+    height: 140rpx;
+    left: 306rpx;
+    top: 1144rpx;
+    view{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width:100% ;
+      max-height: 100%;
+      image{
+        width: 100%;
+        height: 100%;
+
+      }
+    }
+}
+.next-music{
+  position: absolute;
+  width:  66rpx;
+  height: 40rpx;
+  left: 496rpx;
+  top: 1195rpx;
+  view{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width:100% ;
+    max-height: 100%;
+    image{
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+}
+.forward{
+  position: absolute;
+  width: 36rpx;
+  height: 40rpx;
+  left: 630rpx;
+  top: 1195rpx;
+  view{
+    position: relative;
+    width: 36rpx;
+    height: 40rpx;
+    max-width:36rpx ;
+    max-height: 40rpx;
+    image{
+      width: 100%;
+      height: 100%;
+      max-width:56rpx ;
+      max-height: 60rpx;
+    }
+  }
+}
+
+.like{
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 80rpx;
+  top: 1356rpx;
+  view{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    image{
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+}
+.ramdom-play{
+  position: absolute;
+  width: 56rpx;
+  height: 56rpx;
+  left: 262rpx;
+  top: 1356rpx;
+  view{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    image{
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+}
+.single-circle-play{
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 362rpx;
+  top: 1356rpx;
+  view{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    image{
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+}
+.list-circle-play{
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  left: 448rpx;
+  top: 1356rpx;
+  view{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    image{
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+}
+
+.music-list{
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  left: 624rpx;
+  top: 1350rpx;
+  view{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    image{
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+}
+}

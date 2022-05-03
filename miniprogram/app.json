@@ -5,7 +5,9 @@
     "pages/search/index",
     "pages/lib/index",
     "components/index/musician-banner/index",
-    "pages/play-list/detail"
+    "pages/play-list/detail",
+    "pages/register/index",
+    "pages/music-player/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,25 +17,26 @@
     "navigationStyle": "custom"
   },
   "tabBar": {
+    "custom": false,
     "color": "#7A869A",
-    "selectedColor": "#7A869A",
+    "selectedColor": "#105DFB",
     "borderStyle": "white",
     "list": [
       {
-        "iconPath": "./images/home.png",
-        "selectedIconPath": "./images/home-active.png",
+        "iconPath": "./images/explore.png",
+        "selectedIconPath": "./images/explore-active.png",
         "pagePath": "pages/index/index",
         "text": "首页"
       },
       {
-        "iconPath": "./images/search.png",
-        "selectedIconPath": "./images/search-active.png",
+        "iconPath": "./images/searchV2.png",
+        "selectedIconPath": "./images/searchV2-active.png",
         "pagePath": "pages/search/index",
         "text": "搜索"
       },
       {
-        "iconPath": "./images/lib.png",
-        "selectedIconPath": "./images/lib-active.png",
+        "iconPath": "./images/libV2.png",
+        "selectedIconPath": "./images/libV2-active.png",
         "pagePath": "pages/lib/index",
         "text": "音乐库"
       }

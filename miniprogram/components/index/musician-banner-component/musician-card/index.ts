@@ -1,3 +1,5 @@
+import { sayHello } from "../../../../api/hello"
+
 // components/index/musician-banner-component/musician-card/index.ts
 Component({
   /**
@@ -30,7 +32,21 @@ Component({
     //this.triggerEvent 小程序的触发时间  前面那个是触发的类型 
     //后面这个是传进来参数 
     onTab() {
-     this.triggerEvent('click',this.properties.item)
-    }
+     this.triggerEvent('click',this.properties.item);
+     this.hi();
+    },
+
+    hi(){
+      //因为返回回来的是promise对象所以可以.then
+      sayHello().then(resData =>{
+     
+        //微信中的赋值
+        this.setData!({
+        message : resData
+       })
+       
+        return console.log(resData)
+      })
+    },
   }
 })

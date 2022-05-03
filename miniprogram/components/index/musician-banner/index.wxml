@@ -2,7 +2,7 @@
   <view class="title">{{title}}</view>
   <view class="more">更多</view>
 </view>
-<scroll-view scroll-x>
+<scroll-view scroll-x show-scrollbar="{{false}}" enhanced="true">
 
   <view class="list" style="{{'width:'+(list.length*290+50)+'rpx'}}">
   <!-- 自定义组件  -->

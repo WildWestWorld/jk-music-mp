@@ -37,6 +37,10 @@ Component({
         this.setData({
           back:true
         })
+      }else{
+        this.setData({
+          back:false
+        })
       }
     }
   },
@@ -89,8 +93,12 @@ Component({
     backBeforePage(){
       //wx自带的回退函数
       wx.navigateBack();
+    },
+
+    backIndexPage(){
+      //wx自带的回退函数
+       wx.switchTab({url:'/pages/index/index'})
     }
-    
 
   }
 })

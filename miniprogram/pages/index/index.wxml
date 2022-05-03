@@ -23,7 +23,7 @@
   </view>
 
   <!--scroll-view 用于滑动：专题 （该组件还未组件化，个人选择保留） -->
-  <scroll-view class="category-banner-list" scroll-x> 
+  <scroll-view class="category-banner-list" scroll-x  show-scrollbar="{{false}}" enhanced="true"> 
     <view class="big-container" style="{{'width:' + (categoryBannerList.length * 320+40) +'rpx'}}">
 
   <view class="container" style="{{'width:' + (categoryBannerList.length * 320) +'rpx'}}">
@@ -70,9 +70,9 @@
   <!-- 推荐电台 -->
   <view class="recommendPodcastList" style="width: 100%;">
 <!-- 自定义滑动模块组件 -->
-  <srollable-frame title="推荐电台" moreLabel="更多电台" hideMoreLabel="{{false}}" itemWidth="{{320}}" itemCount="{{recommandMusicList.length}}">
+  <srollable-frame title="推荐音乐" moreLabel="更多音乐" hideMoreLabel="{{true}}" itemWidth="{{320}}" itemCount="{{JKRecommandMusicList.length}}">
 
-    <recommendMusic-card wx:for="{{recommandMusicList}}" wx:key="index" item="{{item}}"></recommendMusic-card>
+    <recommendMusic-card wx:for="{{JKRecommandMusicList}}" wx:key="index" item="{{item}}"  ></recommendMusic-card>
 
   </srollable-frame>
 </view>
@@ -80,7 +80,7 @@
 <view class="lastPlayMusic">
 <title-banner title="最近播放" moreLabel="更多" hideMoreLabel="{{true}}"></title-banner>
 <view class="lastplaymusic-list" style="{{'height:'+(lastPlayMusicList.length*168+40)+'rpx'}}">
-  <lastplaymusic-card wx:for="{{lastPlayMusicList}}" wx:key="index" item="{{item}}"></lastplaymusic-card>
+  <lastplaymusic-card wx:for="{{lastPlayMusicList}}" wx:key="index" item="{{item}}" ></lastplaymusic-card>
 </view>
 
 </view>

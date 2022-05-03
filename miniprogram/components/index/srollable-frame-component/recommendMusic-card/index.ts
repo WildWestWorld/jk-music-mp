@@ -17,7 +17,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    artist:null,
+    
   },
 
   /**
@@ -25,8 +26,15 @@ Component({
    */
   methods: {
     onTab(){
-      wx.navigateTo({url:`/pages/play-list/detail?id=${this.properties.item.id}`})
+      wx.navigateTo({url:`/pages/music-player/detail?id=${this.properties.item.id}&musicName=${this.properties.item.name}&artistName=${this.properties.item.artistVoList[0].name}`})
+      
+
     }
+    
+  },
+  onLoad(){
+
+
   }
 
 })

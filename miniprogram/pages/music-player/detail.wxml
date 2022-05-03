@@ -1,0 +1,134 @@
+<JKNavigator title="NOW PLAYING"></JKNavigator>
+  <view class="page">
+  <!-- 图片 -->
+   <view class="img-container">
+    <view>
+    <image src="{{music.photo.url||'../../images/test.png'}}" class="musicImg" bindtap="changeLrcState" wx:if="{{showLrc === false}}"></image>
+    <view class="lyc-container" bindtap="changeLrcState"  wx:if="{{showLrc === true}}" >
+    <scroll-view scroll-y  show-scrollbar="{{false}}" enhanced="true">
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>    
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    <view>歌词</view>
+    
+    </scroll-view>
+    </view>
+
+   </view>
+
+    </view>
+<!-- 歌曲名字/歌手名字 -->
+    <view class="text-container">
+    <view>
+      <view class="music-name-container">
+         <text>{{music.name}}</text>
+      </view>
+
+      <view class="album-name-container" wx:if="{{music.albumVoList.length !==0}}">
+        <wxs src='./map.wxs' module="map"></wxs>
+         <text>{{map.getNameList(music.albumVoList)||''}}</text>
+      </view>
+
+      <view class="artist-name-container"  wx:if="{{music.artistVoList.length !==0}}">
+         <text>{{map.getNameList(music.artistVoList)||''}}</text>
+      </view>
+
+     </view>
+   </view>
+<!-- 音乐播放进度条 -->
+    <view class="time-code-solider">
+      <view class="progress">
+        <view class="progress-bar" style="width:{{value}}%;">
+          <text class="progress-bar-value">{{value}}</text>
+        </view>
+      </view>
+
+      <view class="time-container">
+        <view class="current-time">{{currentTime||'00:00'}}</view>
+        <view class="total-time">{{formatTime||'00:00'}}</view>
+      </view>
+
+    </view>
+<!-- 播放按钮区域 -->
+
+        <view class="back">
+        <view>
+          <image src="../../images/reback.jpeg" alt=""/>
+        </view>
+         
+         </view>
+
+        <view class="previous-music">        
+        <view>
+          <image src="../../images/previous-music.png" alt=""/>
+        </view>
+        </view>
+
+        <view class="play-music" bindtap="changePlayState">
+          <view>
+          <image src="{{isPlay?'../../images/play-music-pause.png':'../../images/play-music-play.png'}}" alt=""/>
+           </view>
+        </view>
+        <view class="next-music">
+          <view>
+          <image src="../../images/next-music.png" alt=""/>
+           </view>
+        </view>
+        <view class="forward">
+          <view>
+          <image src="../../images/forward.png" alt=""/>
+           </view>
+       </view>
+     <!-- 喜欢/设置按钮区域 -->
+
+     <view class="like">
+          <view>
+          <image src="../../images/like.png" alt=""/>
+           </view>
+       </view>
+
+       <view class="ramdom-play">
+          <view>
+          <image src="../../images/ramdom-play-unclick.png" alt=""/>
+           </view>
+       </view>
+
+     <view class="single-circle-play">
+          <view>
+          <image src="../../images/single-circle-unclick.png" alt=""/>
+           </view>
+       </view> 
+
+       <view class="list-circle-play">
+          <view>
+          <image src="../../images/list-circle-click.png" alt=""/>
+           </view>
+       </view> 
+
+       <view class="music-list">
+          <view>
+          <image src="../../images/play-list-unclick.png" alt=""/>
+           </view>
+       </view> 
+  </view>
+
