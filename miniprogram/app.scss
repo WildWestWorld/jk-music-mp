@@ -1,3 +1,5 @@
+
+
 /**app.wxss**/
 .container {
   height: 100%;
@@ -9,6 +11,12 @@
   box-sizing: border-box;
 
 } 
-.page{
-  font-family: "AppleGothic" !important;
+page{
+  font-family: "Barlow,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif,AppleGothic" !important;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  box-sizing: border-box;
+
 }

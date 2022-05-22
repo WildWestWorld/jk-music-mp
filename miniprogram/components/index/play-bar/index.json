@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+
+    "JKMusicList":"../../../components/common/JKMusicList/index"
+  }
+}

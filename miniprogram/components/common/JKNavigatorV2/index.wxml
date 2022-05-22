@@ -1,0 +1,11 @@
+<!-- 暂时废弃，原因：V1已被修复完毕 -->
+<view class="nav-bar">
+  <!-- 电量和时间的状态栏 -->
+  <view class="status-bar" style="height:{{statusBarHeight}}px;"></view>
+  <view class="nav-bar-button">
+    <view class="left">L</view>
+    <view class="center">C</view>
+    <view class="right">R</view>
+
+  </view>
+</view>

@@ -6,6 +6,8 @@
      "musician-card":"../../components/index/musician-banner-component/musician-card/index",
      "recommendMusic-card":"../../components/index/srollable-frame-component/recommendMusic-card/index",
       "title-banner":"../../components/index/srollable-frame-component/title-banner/index",
-      "lastplaymusic-card":"../../components/index/lastplaymusic-card/index"
+      "lastplaymusic-card":"../../components/index/lastplaymusic-card/index",
+      "play-bar":"../../components/index/play-bar/index",
+      "JKMusicList":"../../components/common/JKMusicList/index"
     }
 }

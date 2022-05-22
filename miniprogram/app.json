@@ -6,7 +6,7 @@
     "pages/lib/index",
     "components/index/musician-banner/index",
     "pages/play-list/detail",
-    "pages/register/index",
+
     "pages/music-player/detail"
   ],
   "window": {
@@ -42,5 +42,6 @@
       }
     ]
   },
+  "requiredBackgroundModes": ["audio"],
   "sitemapLocation": "sitemap.json"
 }

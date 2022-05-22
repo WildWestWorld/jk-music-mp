@@ -1,0 +1,37 @@
+<wxs src='../../../pages/music-player/map.wxs' module="map"></wxs>
+
+<!-- 音乐播放列表 -->
+       <!-- 展示音乐时出现的灰色的背景 -->  
+<view class="maskBgc" wx:if="{{showMusicList}}" bindtap="changeShowMusicListState"  ></view>
+
+
+<view class="real-music-list"  
+        style="transform:translate(0%,{{showMusicList?'0vh':'80vh'}});" >
+        <view class="music-list-container">
+          <view class="music-list-title">
+            当前播放
+            <text class="musicListLength">({{playSongList.length}})</text>
+          </view>
+
+          <scroll-view class="musicListSrcoll" scroll-y  show-scrollbar="{{false}}" enhanced="true"
+           scroll-into-view="currentMusic{{playSongIndex}}">
+            <view class="musicItem" wx:for="{{playSongList}}"   wx:key="index" id="currentMusic{{index}}" 
+            data-index="{{index}}" bindtap="changeCurrentMusic">
+              <view class="music-info-container">
+              <view class="{{playSongIndex===index?'current-music-name':'music-name'}}"> {{item.name}}</view>
+              <view class="{{playSongIndex===index?'current-artist-name':'artist-name'}}"> -{{map.getNameList(item.artistVoList)||''}}</view>
+              
+
+              </view>
+              <view class="delete-icon-container">
+              <view class="delete-icon" catchtap="deleteMusicListCurrentMusic"  data-index="{{index}}">×</view>
+              </view>
+            </view>
+
+          </scroll-view>
+
+          <view class="music-list-bottom">
+
+          </view>
+      </view>
+    </view>

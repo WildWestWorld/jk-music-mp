@@ -18,6 +18,7 @@ Component({
     navWidth: 0, // 导航栏宽度
     menuButtonRightPadding:0,//胶囊的右边距
 
+    pages:null,//所有的页面信息
 
     back:false//用于判断回退按钮是否显示
   },
@@ -33,6 +34,9 @@ Component({
       const pages =getCurrentPages();
       //如果访问过的页面大于1时，也就是你之前有访问过页面，就设置值为true，该值用于判断是否显示回退
       //因为回退函数是基于你之前访问过的页面来回退的，所以要判断pages是否大于1
+      this.setData({
+        pages
+      })
       if(pages.length>1){
         this.setData({
           back:true
@@ -72,7 +76,7 @@ Component({
           this.setData({
             //statusBarHeight就是状态栏的高度
             statusBarHeight: statusBarHeight,
-            //navHeight导航栏的总体高度，胶囊按钮高度+状态栏的高度+胶囊按钮的衫修改编剧
+            //navHeight导航栏的总体高度，胶囊按钮高度+状态栏的高度+胶囊按钮边距
             navBoxHeight: (height + statusBarHeight + (margin * 2)),
             //导航栏的margintop，就是状态栏的高度+状态栏和胶囊按钮的间距，其实就是胶囊按钮的上边距
             navMarginTop: statusBarHeight + margin, // 状态栏 + 胶囊按钮边距
@@ -85,7 +89,11 @@ Component({
             //胶囊按钮的右边距
             menuButtonRightPadding:windowInfo.screenWidth-menuButtonInfo.right
           })
-        
+          const appInstance=getApp();
+
+         
+         appInstance.globalData.navMarginTop=this.data.navMarginTop
+         appInstance.globalData.navHeight=this.data.navHeight
         },
       })
     },//calculateMenuAndStatusBar止
@@ -93,6 +101,10 @@ Component({
     backBeforePage(){
       //wx自带的回退函数
       wx.navigateBack();
+      // let beforePage = this.data.pages[this.data.pages.length -2];  //获取上个页面的实例对象
+
+      // beforePage.go_update();   //触发上个页面自定义的go_update方法
+
     },
 
     backIndexPage(){

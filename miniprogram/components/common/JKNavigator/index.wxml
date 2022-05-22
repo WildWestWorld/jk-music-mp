@@ -1,4 +1,4 @@
-<view class="navigator" style="{{'top:'+navMarginTop*2+'rpx;' }} {{'height:'+navHeight*2 +'rpx;'}}  {{'padding:0 '+(menuButtonRightPadding+22)*2+'rpx' }} ">
+<view class="navigator" style="{{'top:'+navMarginTop+'px;' }} {{'height:'+navHeight +'px;'}}  {{'padding:0 '+(menuButtonRightPadding+22)+'px' }} ">
   <view class="left-icon-container" bindtap="{{back?'backBeforePage':'backIndexPage'}}">
     <image src="../../../images/back.svg" class="left-icon"></image>
   </view>

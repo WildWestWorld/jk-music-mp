@@ -1,10 +1,62 @@
+import { loginWxApi } from "./api/loginWx";
+import { playerStore } from "./store/index";
 import { getToken } from "./utils/auth"
 
 // app.ts
 App<IAppOption>({
-  globalData: {},
-  onLaunch() {
+  globalData: {
+    //是否在播放
+    isMusicPlay:false,
+    isSameMusic:false,
+    //音乐ID
+    musicId:'',
+    // 当前播放歌单id
+     musicListId: '',
+    // 当前播放歌曲在歌单中的索引
+    playingMusicIndex: 0,
+    // 当前播放歌单
+    playingMusicList: [],
+    // 用户喜欢的歌曲列表(短时间多次请求喜欢列表会导致304缓存，所以请求一次后在本地进行操作)
+    likeList: [],
+    // 存放在musicList中请求到的列表id
+    trackIdsList: [],
+    //下面的暂时无用
+    musicObject:null,
+    musicPercent:0,
+    musicTotalTime:'00:00',
+    musicCurrentTime:'00:00',
+    //屏幕的信息
+    screenWidth:0,
+    screenHeight:0,
+    deviceRadio:0,
+    //状态栏的信息，状态栏就是显示时间和电量的一个状态
+    statusBarHeight:0,
 
+  },
+  //自定义函数区
+  async loginWx(){
+    //自定义函数，具体在api/loginWx里面
+    const code =await loginWxApi()
+    console.log(code)
+  },
+  onLaunch() {
+    //获取当前手机的信息，例如屏幕的宽高
+    const info =wx.getSystemInfoSync();
+    this.globalData.screenHeight =info.screenHeight;
+    this.globalData.screenWidth =info.screenWidth;
+    this.globalData.statusBarHeight =info.statusBarHeight;
+    this.globalData.deviceRadio=info.devicePixelRatio
+    console.log(info);
+    //获取用户信息(暂时不需要，我们有写token)
+    // this.loginWx()
+    
+    //获取store里面playSongList
+    let playSongList =wx.getStorageSync('playSongList')
+    console.log(playSongList)
+    if(playSongList.length !== 0){
+      playerStore.setState('playSongList',playSongList)
+      console.log(playSongList)
+    }
   },
   onShow(){
 
@@ -33,8 +85,12 @@ App<IAppOption>({
           //   wx.navigateTo({url:'/pages/login/index'})
           // }
         }
-     
-  }
 
+
+         //获取store里面playSongList
+
+  },
+  onUnload(){
+  }
 
 })

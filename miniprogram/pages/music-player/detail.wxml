@@ -1,42 +1,91 @@
+
+
 <JKNavigator title="NOW PLAYING"></JKNavigator>
-  <view class="page">
+
+
+<!-- 1.背景 -->
+<!-- 图片设置mode="aspectFill"属性（保持宽高比例，图片充满，超出裁剪） -->
+<image class="bg-image" mode="aspectFill" src="{{music.photo.url||'../../images/test.png'}}"></image>
+<view class="bg-cover"></view>
+
+     <!-- 音乐播放列表 -->
+       <!-- 展示音乐时出现的灰色的背景 -->  
+       <view class="maskBgc" wx:if="{{showMusicList}}" bindtap="changeShowMusicListState"  ></view>
+       <!-- 用于展示音乐歌单 -->  
+ 
+      <view class="real-music-list"  
+        style="transform:translate(0%,{{showMusicList?'0vh':'80vh'}});" >
+        <view class="music-list-container">
+          <view class="music-list-title">
+            当前播放
+            <text class="musicListLength">({{playSongList.length}})</text>
+          </view>
+
+          <scroll-view class="musicListSrcoll" scroll-y  show-scrollbar="{{false}}" enhanced="true"
+           scroll-into-view="currentMusic{{playSongIndex}}">
+            <view class="musicItem" wx:for="{{playSongList}}"   wx:key="index" id="currentMusic{{index}}" 
+            data-index="{{index}}" bindtap="changeCurrentMusic">
+              <view class="music-info-container">
+              <view class="{{playSongIndex===index?'current-music-name':'music-name'}}"> {{item.name}}</view>
+              <view class="{{playSongIndex===index?'current-artist-name':'artist-name'}}"> -{{map.getNameList(item.artistVoList)||''}}</view>
+              
+
+              </view>
+              <view class="delete-icon-container">
+              <view class="delete-icon" catchtap="deleteMusicListCurrentMusic"  data-index="{{index}}">×</view>
+              </view>
+            </view>
+
+          </scroll-view>
+
+          <view class="music-list-bottom">
+
+          </view>
+      </view>
+    </view>
+
+<!-- 内容 -->
+<!-- <view class="page" style="height:{{contentHeight}}px;top:{{contentTop}}px"> -->
+  <view class="page" style="height:100vh;top:{{contentTop}}px">
+    <view class="music-player-container">
+
   <!-- 图片 -->
    <view class="img-container">
     <view>
     <image src="{{music.photo.url||'../../images/test.png'}}" class="musicImg" bindtap="changeLrcState" wx:if="{{showLrc === false}}"></image>
     <view class="lyc-container" bindtap="changeLrcState"  wx:if="{{showLrc === true}}" >
-    <scroll-view scroll-y  show-scrollbar="{{false}}" enhanced="true">
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
+    <scroll-view scroll-y  show-scrollbar="{{false}}" enhanced="true" scroll-top="{{lycScrollTop+'rpx'}}">
 
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>    
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
+      <view class="decorate">1</view>
+      <view class="decorate">1</view>
+      <view class="decorate">1</view>
+      <view class="decorate">1</view>
+      <view class="decorate">1</view>
+      <view class="decorate">1</view>
 
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
-    <view>歌词</view>
+
+
+      <view wx:for="{{lycArray}}"   wx:key="index" class="{{currentLycIndex===index?'currentLyc':''}}"  id="Lyc{{index}}">
+      {{item[1]}}
+      </view>
     
     </scroll-view>
     </view>
-
+    <view class="shrinked-lyc-container" bindtap="changeLrcState"  wx:if="{{showLrc === false}}">
+    <view class="shrinked-scroll-container" >
+      <scroll-view scroll-y  show-scrollbar="{{false}}" enhanced="true" scroll-into-view="{{toLyc}}">
+        <view wx:for="{{lycArray}}"   wx:key="index" class="{{currentLycIndex===index?'currentLyc':''}}" id="Lyc{{index}}">
+      {{item[1]}}
+      </view>
+      </scroll-view>
+    </view>
+    </view>
    </view>
 
     </view>
+    <view class="function-icon-container">
+  
+
 <!-- 歌曲名字/歌手名字 -->
     <view class="text-container">
     <view>
@@ -57,11 +106,29 @@
    </view>
 <!-- 音乐播放进度条 -->
     <view class="time-code-solider">
-      <view class="progress">
+
+      <!-- <view class="progress">
+      
         <view class="progress-bar" style="width:{{value}}%;">
-          <text class="progress-bar-value">{{value}}</text>
+       
+
         </view>
-      </view>
+      </view> -->
+      <view class="slider-container">
+        <view>
+      <slider class="slider" 
+              block-size="20"
+              selected-color="rgba(16, 93, 251,1)"
+             backgroundColor=" rgba(16, 93, 251,0.4)"
+             block-color="rgba(255, 255, 255, 0.75)"
+              value="{{value}}"
+              bindchange="handleSliderChange"
+              bindchanging="handleSliderDrag"
+
+              >
+            </slider>
+          </view>
+          </view>
 
       <view class="time-container">
         <view class="current-time">{{currentTime||'00:00'}}</view>
@@ -69,16 +136,17 @@
       </view>
 
     </view>
-<!-- 播放按钮区域 -->
 
-        <view class="back">
+<!-- 播放按钮区域 -->
+    <view class="play-icon-container">
+        <view class="back" bindtap="changePlayMusicToSlow30s">
         <view>
-          <image src="../../images/reback.jpeg" alt=""/>
+          <image src="../../images/reback.png" alt=""/>
         </view>
          
          </view>
 
-        <view class="previous-music">        
+        <view class="previous-music" bindtap="changePlayMusicToPreMusic">        
         <view>
           <image src="../../images/previous-music.png" alt=""/>
         </view>
@@ -89,18 +157,19 @@
           <image src="{{isPlay?'../../images/play-music-pause.png':'../../images/play-music-play.png'}}" alt=""/>
            </view>
         </view>
-        <view class="next-music">
+        <view class="next-music" bindtap="changePlayMusicToNextMusic">
           <view>
           <image src="../../images/next-music.png" alt=""/>
            </view>
         </view>
-        <view class="forward">
+        <view class="forward" bindtap="changePlayMusicToQuick30s">
           <view>
           <image src="../../images/forward.png" alt=""/>
            </view>
        </view>
+      </view>
      <!-- 喜欢/设置按钮区域 -->
-
+      <view class="like-icon-container">
      <view class="like">
           <view>
           <image src="../../images/like.png" alt=""/>
@@ -109,26 +178,40 @@
 
        <view class="ramdom-play">
           <view>
-          <image src="../../images/ramdom-play-unclick.png" alt=""/>
+          <image bindtap="changePlayModeIndexToRadom" src="{{playModeIndex ===2?'../../images/ramdom-play-click.png':'../../images/ramdom-play-unclick.png'}}" alt=""/>
            </view>
        </view>
 
      <view class="single-circle-play">
           <view>
-          <image src="../../images/single-circle-unclick.png" alt=""/>
+
+          <image  bindtap="changePlayModeIndexToSingleCricle"            
+           src="{{playModeIndex ===1?'../../images/single-circle-click.png':'../../images/single-circle-unclick.png'}}" 
+           alt=""/>
            </view>
        </view> 
 
        <view class="list-circle-play">
           <view>
-          <image src="../../images/list-circle-click.png" alt=""/>
+
+          <image           
+            bindtap="changePlayModeIndexToListCricle"    
+            src="{{playModeIndex ===0?'../../images/list-circle-click.png':'../../images/list-circle-unclick.png'}}" 
+
+           alt=""/>
            </view>
        </view> 
 
-       <view class="music-list">
+       <view class="music-list" bindtap="changeShowMusicListState">
           <view>
-          <image src="../../images/play-list-unclick.png" alt=""/>
+          <image src="{{showMusicList?'../../images/play-list-click.png':'../../images/play-list-unclick.png'}}" alt=""/>
            </view>
        </view> 
+      </view>
+
+       </view>
+
+
+      </view>
   </view>
 

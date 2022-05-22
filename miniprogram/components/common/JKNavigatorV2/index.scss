@@ -1,0 +1,16 @@
+/* components/common/JKNavigatorV2/index.wxss */
+
+.status-bar{
+  background-color: #f00;
+  width: 100%;
+}
+.nav-bar-button{
+  display: flex;
+  align-items: center;
+  .center{
+    flex: 1;
+  }
+  .left,.right{
+    width: 120rpx;
+  }
+}

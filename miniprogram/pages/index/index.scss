@@ -1,5 +1,16 @@
 @import '../../style/styleBySelf.scss';
 
+.bg-cover{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(white,1);
+  backdrop-filter: blur(30px);
+}
+
 .page{
   height: 100vh;
   width: 100vw;
@@ -20,6 +31,7 @@
       height: 480rpx;
     }
     .user-box{
+      opacity: 0;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -132,6 +144,78 @@
       padding: 0 50rpx;
     }
   }
+//播放工具栏的padding更优解决方案
+//因为fix的时候，页面中不占位，所以我们写了一个与fix相同高度的relative填充该位置
+.play-bar-placeholder{
+  height: 44px;
+}
+
+// 播放工具栏
+  .play-bar{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 44px;
+    padding: 0 8px;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -1px 5px rgba(0,0,0, 0.1);
+    .left{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      .cover{
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        position: relative;
+        top: -6px;
+      }
+      .cover-anim{
+        //旋转10s 
+        animation: coverRotate 16s linear infinite;
+      }
+      //旋转动画
+      @keyframes coverRotate{
+        from{
+          transform: rotate(0deg);
+        }
+        to{
+          transform: rotate(360deg);
+
+        }
+      }
+      .name{
+        font-size: 14px;
+        margin-left: 10rpx;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    .right{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      .icon-play{
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+      }
+      
+
+      .icon-playlist{
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
 }
 
 
