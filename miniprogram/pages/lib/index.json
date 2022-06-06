@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "JKNavigator":"../../components/common/JKNavigator/index",
+    "play-bar":"../../components/index/play-bar/index",
+    "music-item":"../../components/lib/music-item/index"
+    
+  }
 }

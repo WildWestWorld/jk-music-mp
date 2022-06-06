@@ -24,7 +24,8 @@
   </view>
 
   <!--scroll-view 用于滑动：专题 （该组件还未组件化，个人选择保留） -->
-  <scroll-view class="category-banner-list" scroll-x  show-scrollbar="{{false}}" enhanced="true"> 
+  <scroll-view class="category-banner-list" scroll-x 
+   show-scrollbar="{{false}}" enhanced="true"> 
     <view class="big-container" style="{{'width:' + (categoryBannerList.length * 320+40) +'rpx'}}">
 
   <view class="container" style="{{'width:' + (categoryBannerList.length * 320) +'rpx'}}">
@@ -90,7 +91,7 @@
 
 
 <!-- 播放工具栏 -->
-<play-bar currentMusic="{{currentMusic}}" playAnimState="{{playAnimState}}" isPlay="{{isPlay}}" playSongList="{{playSongList}}"  playSongIndex="{{playSongIndex}}" ></play-bar>
+<play-bar currentMusic="{{currentMusic}}" playAnimState="paused" isPlay="{{isPlay}}" playSongList="{{playSongList}}"  playSongIndex="{{playSongIndex}}" ></play-bar>
 
 <!-- page止 -->
 </view>

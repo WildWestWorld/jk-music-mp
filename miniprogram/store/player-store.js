@@ -1,7 +1,7 @@
 import {HYEventStore} from 'hy-event-store'
 import { getMusicById } from "../api/music";
 import {getDIY} from "../api/request"
-import {parseLyric,debounce} from "../store/index";
+import {parseLyric,debounce,throttle} from "../store/index";
 import moment from 'moment';
 
 const backgroundAudioManager= wx.getBackgroundAudioManager();
@@ -133,7 +133,7 @@ const playerStore =new HYEventStore({
   
     }),
   
-    backgroundAudioManager.onTimeUpdate(debounce(()=>{
+    backgroundAudioManager.onTimeUpdate(throttle(()=>{
       state.currentTimeMs= backgroundAudioManager.currentTime
       let procent=Math.floor(backgroundAudioManager.currentTime/backgroundAudioManager.duration*1000)/10;
      
@@ -142,6 +142,11 @@ const playerStore =new HYEventStore({
       let currentTime = moment(backgroundAudioManager.currentTime * 1000).format('mm:ss')
           //不是在slider滑动状态，我们就设置data，如果在滑动我们就不设置data
 
+      if(Math.abs(state.value-procent)>1.5){
+        procent=state.value
+        currentTime=state.currentTime
+
+      }
     if(!state.isSliderDrag){
       state.value=procent
       state.currentTime=currentTime
@@ -200,7 +205,7 @@ const playerStore =new HYEventStore({
   
   
   
-      },200)),
+      },300)),
     
       //监听播放结束的事件
       backgroundAudioManager.onEnded(()=>{
@@ -290,15 +295,28 @@ changePlayMusicToNextMusicOrPreMusic(state,isNext=true){
 
 //快进30s
 changePlayMusicToQuickOrSlow30s(state,isQuick=true){
-  let  currentTime= backgroundAudioManager.currentTime
+  let  musicCurrentTime= backgroundAudioManager.currentTime
+
   if(isQuick){
+  let newCurrentTime=musicCurrentTime+30
+  let newValue=Math.floor(newCurrentTime/backgroundAudioManager.duration*1000)/10;
+  let   currentTime = moment(newCurrentTime * 1000).format('mm:ss')
+  // console.log(currentTime)
+  // console.log(currentTime,newCurrentTime)
 
-    backgroundAudioManager.seek(currentTime+30)
-  
+    backgroundAudioManager.seek(newCurrentTime)
+    state.value=newValue
+    state.currentTime=currentTime
+
   }else{
-    backgroundAudioManager.seek(currentTime-30)
-
-  }
+    let newCurrentTime=musicCurrentTime-30
+    let newValue=Math.floor(newCurrentTime/backgroundAudioManager.duration*1000)/10;
+    let currentTime = moment(newCurrentTime * 1000).format('mm:ss')
+    // console.log(currentTime,newCurrentTime)
+      backgroundAudioManager.seek(newCurrentTime)
+      state.value=newValue
+      state.currentTime=currentTime
+  } 
 },
 //在歌曲列表弹框，点击跳转
 changeCurrentMusic(state,musicIndex){

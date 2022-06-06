@@ -39,7 +39,7 @@ export function parseLyric(lyricString) {
 
   return lyricInfos
 }
-//防抖
+//老版防抖
 export function oldDebounce(fun,delay){
   let run;
   return ()=>{
@@ -52,7 +52,7 @@ export function oldDebounce(fun,delay){
       ,delay)
   }
 }
-
+//防抖
 export function debounce(fun,delay){
   let timer =null;
 
@@ -67,4 +67,26 @@ export function debounce(fun,delay){
 
   return _debounce
 
+}
+//节流
+export function throttle(fun,interval){
+  let lastIntervalTime =0
+  const _throttle=()=>{
+    //我们用剩余时间来判断是否要执行函数
+    //new Data().getTime()返回1970.1.1至今的毫秒数
+    const nowTime=new Date().getTime()
+
+    //(现在的时间-上次时间周期开始的时间)=当前时间在周期位置
+    let nowIntervalTime=nowTime-lastIntervalTime
+    //时间周期-=当前时间在周期位置=周期剩下的时间
+    const remainIntervalTime =interval-nowIntervalTime
+    //如果周期剩下的时间小于0我们就执行函数，也就是这个周期时间到了
+    if(remainIntervalTime<0){
+      fun()
+      //周期时间到了，就让当前的时间设置为周期开始的时间
+      lastIntervalTime=nowTime
+    }
+  }
+
+  return _throttle
 }

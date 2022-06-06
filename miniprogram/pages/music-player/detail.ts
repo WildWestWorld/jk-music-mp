@@ -1,7 +1,7 @@
 
 import { get, getDIY } from "../../api/request";
 import { getMusicById } from "../../api/music";
-import {backgroundAudioManager,debounce,parseLyric,playerStore} from "../../store/index";
+import {backgroundAudioManager,debounce,parseLyric,playerStore, throttle} from "../../store/index";
 import moment from 'moment';
 
 const appInstance=getApp();
@@ -424,7 +424,8 @@ handleSliderChange(event){
 
   backgroundAudioManager.pause()
   backgroundAudioManager.seek(currentTimeAfterSlider)
-  backgroundAudioManager.play()
+    backgroundAudioManager.play()
+
   playerStore.setState('value',valueAfterSlider)
   let   currentTime = moment(currentTimeAfterSlider * 1000).format('mm:ss')                
 
@@ -652,14 +653,17 @@ this.musicStateWatchFunciton
 );
 //进度条相关变量监听
 playerStore.onStates(["value"],({value})=>{
-  console.log(value)
-  if(value){   this.setData({value:value})}
- const  fun =()=>{
-  console.log(value)
-  if(value){   this.setData({value:value})
- }
-  }
-  debounce(fun,0)
+
+  if(value!== undefined&& value !== null){   this.setData({value:value})}
+//  const  fun =()=>{
+//   console.log(value)
+//   if(value){   this.setData({value:value})
+//  }
+//   }
+  // throttle(()=>{
+  // console.log(value)
+  // if(value){   this.setData({value:value})}
+  // },10)
 
 });
 //播放模式相关变量监听
@@ -838,10 +842,10 @@ playerStore.onStates(["playSongList","playSongIndex"],({playSongList,playSongInd
    */
   onUnload() {
     //停止监听
-    playerStore.offStates(["formatTime","lycArray","totalTime","currentLycIndex","lycScrollTop","toLyc","currentTime"],
-//封装好的函数，就在watchPlayerStoreListener上面
-    this.musicStateWatchFunciton
-    );
+//     playerStore.offStates(["formatTime","lycArray","totalTime","currentLycIndex","lycScrollTop","toLyc","currentTime"],
+// //封装好的函数，就在watchPlayerStoreListener上面
+//     this.musicStateWatchFunciton
+//     );
     // playerStore.dispatch('saveMusicListIntoStorage')
   },
 

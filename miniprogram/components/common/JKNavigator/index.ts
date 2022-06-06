@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    title:{type:String,value:''}
+    title:{type:String,value:''},
+    
+    showBack:{type:Boolean,value:true},
+    titleFontSize:{type:Number,value:0},
   },
 
   /**
@@ -20,7 +23,8 @@ Component({
 
     pages:null,//所有的页面信息
 
-    back:false//用于判断回退按钮是否显示
+    backToIndexPage:false,//用于判断回退按钮是否显示
+
   },
 
   /**

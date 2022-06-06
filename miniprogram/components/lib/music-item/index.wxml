@@ -1,0 +1,21 @@
+<view class="scroll-item-container">
+                <view class="music-item-container">
+                  <view class="left">
+                    <view class="music-name">
+                    <text>    {{item.name}}</text>
+                
+                    </view>
+                    <view class="artist-name-icon-container">
+                      <view class="HQ-icon">
+                        <image src="../../../images/HQ.png"></image>
+                      </view> 
+                      
+                      <view class="artist-name">周杰伦</view> 
+                    </view>
+
+                  </view>
+                  <view class="right">
+                  <image src="../../../images/more.png" style="width: 32px;height: 32px;"></image>
+                  </view>
+                </view>
+            </view>

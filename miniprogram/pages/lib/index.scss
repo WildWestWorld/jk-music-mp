@@ -1,0 +1,178 @@
+@import '../../style/styleBySelf.scss';
+@import '../../app.scss';
+page{
+  overflow-y: hidden;
+}
+.page{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  .tabs-container{
+    height: 100rpx;
+    width: 100vw;
+    position: relative;
+    background-color: #fff;
+    box-sizing: border-box;
+
+
+    .tabs{
+      width: 100%;
+      height: 100rpx;
+     position: relative;
+
+      &::before{
+        width: 100%;
+        content: '';
+        position: absolute;
+        border-bottom: 2rpx solid rgba($color: grey, $alpha: 0.3);
+        transform: scaleY(0.5);
+        -webkit-transform: scaleY(0.5);
+        bottom: 0;
+        left: 0;
+
+      } 
+      .tab-item-container{
+       width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        white-space: nowrap;
+        .tab-item{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          min-height: 40rpx;
+
+          color: #999;
+          font-weight: 400;
+          font-size: 32rpx;
+
+          min-width: 170rpx;
+          min-height: 40rpx;
+
+
+        }
+        .current-tab-item{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          min-height: 40rpx;
+
+          color: $primary-color;
+          font-size: 36rpx;
+          font-weight: bold;
+         
+
+          min-width: 170rpx;
+          min-height: 40rpx;
+
+        }
+
+        .scroll-bar-container{
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 8rpx;
+    
+          .scroll-bar{
+             position: relative;
+            box-sizing: border-box;
+          
+            min-width: 70rpx;
+            max-width: 72rpx;
+
+            height: 8rpx;
+            background-color: $primary-color;
+            transition-duration:0.15s;
+            border-radius: 8rpx;
+          }
+        }
+
+      }
+    }
+
+  }
+
+
+  .tab-content-container{
+    height: 100%;
+    position: relative;
+
+    .tab-content{
+      height: 100%;
+      
+      .tab-content-item{
+        height: 100%;
+
+        .scroll-content{
+          height: 100%;
+          
+          box-sizing: border-box;
+          .scroll-container{
+            height: 100%;
+            margin-top: 20rpx;
+          .scroll-item-container{
+            
+          height:100rpx;
+          margin:0rpx 46rpx 20rpx 46rpx ;
+          box-sizing: border-box;
+            .music-item-container{
+              height:100%;
+              display: flex;
+              flex-direction: row;
+              .left{
+                width: 70%;
+                max-width: 70%;
+                display: flex;
+                flex-direction: column;
+                .music-name{
+                  font-size: 40rpx;
+                  font-weight: 400;
+                  display: flex;
+                  align-items: center;
+                  height: 60%;
+                  max-height: 60%;
+
+                }
+                .artist-name-icon-container{
+                  height: 40%;
+                  max-height: 40%;
+                  line-height: 18px;
+                  font-size: 30rpx;
+                  color: rgb(131, 131, 131);
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: flex-start;
+                  align-items: center;
+                  .HQ-icon{
+                    width: 40rpx;
+                    height: 40rpx;
+                    image{
+                      width: 40rpx;
+                     height: 40rpx;
+
+                    }
+                  }
+                }
+              }
+              .right{
+                width: 30%;     
+                max-width: 30%;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+              }
+            }
+          }
+        }
+        }
+      }
+    }
+  }
+
+}

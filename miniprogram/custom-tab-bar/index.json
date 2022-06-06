@@ -1,3 +1,7 @@
 {
-  "component": true
+  "component": true,
+  "usingComponents": {    
+
+    "play-bar":"../components/index/play-bar/index"
+  }
 }

@@ -185,7 +185,6 @@ playerStore.onStates(["music","isPlay"],({music,isPlay})=>{
             playAnimState:isPlay?"running":"paused"
           })
         }
-        console.log(isPlay)
 })
 //歌单相关变量监听
 playerStore.onStates(["playSongList","playSongIndex"],({playSongList,playSongIndex})=>{

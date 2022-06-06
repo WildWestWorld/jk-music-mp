@@ -1,2 +1,67 @@
-<!--pages/lib/index.wxml-->
-<text>pages/lib/index.wxml</text>
+<JKNavigator title="音乐库" backToIndexPage="{{true}}" showBack='{{false}}' ></JKNavigator>
+
+<view class="page" style="height:calc(100vh - {{contentTop}}px);top:{{contentTop}}px">
+
+  <view class="tabs-container" >
+    <scroll-view  class="tabs" scroll-x show-scrollbar="{{false}}" enhanced="true" scroll-into-view="{{toTab}}" scroll-left="{{scrollLeft}}">
+        <view class="tab-item-container">
+          <view class="{{currentTabIndex===index?'current-tab-item':'tab-item'}}" wx:for="{{tabList}}" wx:key="index"  data-clickItemIndex="{{index}}" bindtap="changeCurrentTabIndex" id="Tab{{index}}" scroll-left="{{scrollRight}}">
+         
+            <view class="tab-item-content" >{{item}}</view>
+          </view>
+           <view class="scroll-bar-container">
+
+            <view class="scroll-bar" style="transform:translateX({{85+170*(currentTabIndex+scrollPercent)}}rpx) translateX(-50%);"></view>
+          </view>
+
+        </view>
+    </scroll-view>
+
+  </view>
+  <view class="tab-content-container">
+
+    <swiper class="tab-content" bindtransition="watchSwiperItemPositon" 
+    bindanimationfinish="watchSwiperAnimationFinish"
+    bindchange="watchSwiperChange"
+     current="{{currentTabIndex}}">
+      <swiper-item class="tab-content-item">
+         <scroll-view  class="scroll-content" scroll-y show-scrollbar="{{false}}" enhanced="true" >
+          <view class="scroll-container">
+            <view class="scroll-item-container">
+                <!-- <view class="music-item-container">
+                  <view class="left">
+                    <view class="music-name">周大侠</view>
+                    <view class="artist-name-icon-container">
+                      <view class="HQ-icon">
+                        <image src="../../images/HQ.png"></image>
+                      </view> 
+                      
+                      <view class="artist-name">周杰伦</view> 
+                    </view>
+
+                  </view>
+                  <view class="right">
+                  <image src="../../images/more.png" style="width: 32px;height: 32px;"></image>
+                  </view>
+                </view> -->
+
+                <music-item wx:for="{{musicList}}"  wx:key="{{item.id}}"    item="{{item}}" ></music-item>
+
+           </view>
+            </view>
+
+       
+         </scroll-view>
+      </swiper-item>
+      
+      <swiper-item class="tab-content-item">1</swiper-item>
+      <swiper-item class="tab-content-item">1</swiper-item>
+      <swiper-item class="tab-content-item">1</swiper-item>
+      <swiper-item class="tab-content-item">1</swiper-item>
+
+    </swiper>
+
+  </view>
+
+  <play-bar currentMusic="{{currentMusic}}" playAnimState="paused" isPlay="{{isPlay}}" playSongList="{{playSongList}}"  playSongIndex="{{playSongIndex}}" ></play-bar>
+</view>

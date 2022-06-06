@@ -30,6 +30,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/login/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/lib/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

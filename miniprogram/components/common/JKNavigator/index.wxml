@@ -1,10 +1,8 @@
-<view class="navigator" style="{{'top:'+navMarginTop+'px;' }} {{'height:'+navHeight +'px;'}}  {{'padding:0 '+(menuButtonRightPadding+22)+'px' }} ">
-  <view class="left-icon-container" bindtap="{{back?'backBeforePage':'backIndexPage'}}">
+<view class="navigator" style="{{'top:'+navMarginTop+'px;' }} {{'height:'+navHeight +'px;'}}  {{'padding:0 '+(menuButtonRightPadding+22)+'px;' }} ">
+  <view class="left-icon-container" bindtap="{{backToIndexPage?'backBeforePage':'backIndexPage'}}" wx:if="{{showBack === true}}">
     <image src="../../../images/back.svg" class="left-icon"></image>
   </view>
 
-  
-
-  <view class="title" >{{title}}</view>
+  <view class="title" style="{{titleFontSize>0?'font-size:'+titleFontSize+'rpx':''}}">{{title}}</view>
  
 </view>

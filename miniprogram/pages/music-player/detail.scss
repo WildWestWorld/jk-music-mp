@@ -1,4 +1,5 @@
 /* pages/music-player/detail.wxss */
+@import '../../app.scss';
 page{
   overflow-y: hidden;
 }
@@ -181,8 +182,6 @@ page{
   display: flex;
 
   flex-direction: column;
-  height: 100%;
-  width: 100%;
 
 
   position: relative;
